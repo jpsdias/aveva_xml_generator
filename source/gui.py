@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import os
+from files import copy_model_file, load_file_names
 
 def process_file(input_file, output_file):
     # Open the input file with the appropriate encoding.
