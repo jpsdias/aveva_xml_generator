@@ -1,6 +1,6 @@
 import os
 
-def process_file(input_file, output_file_general, output_file_pid):
+def process_file(input_file, output_file):
     # Open the file with the proper encoding
     with open(input_file, 'r', encoding='utf-16') as f:
         lines = f.readlines()
@@ -24,10 +24,10 @@ def process_file(input_file, output_file_general, output_file_pid):
             TempPidLine = line_stripped.split('_', 3)[2]
             pid.append(TempPidLine + "\n")
 
-    with open(output_file_general, 'w', encoding='utf-16') as f:
+    with open(os.path.join(output_file, "general.csv"), 'w', encoding='utf-16') as f:
         f.writelines(general)
 
-    with open(output_file_pid, 'w', encoding='utf-16') as f:
+    with open(os.path.join(output_file, "pid.csv"), 'w', encoding='utf-16') as f:
         f.writelines(pid)
 
 if __name__ == "__main__":
@@ -38,8 +38,7 @@ if __name__ == "__main__":
     
     # Define file paths relative to PROJECT_ROOT.
     input_file_path = os.path.join(base_dir, "db", folder, "Objects.csv")
-    output_file_general_path = os.path.join(base_dir, "db", folder, "general.csv")
-    output_file_pid_path = os.path.join(base_dir, "db", folder, "pid.csv")
+    output_file_path = os.path.join(base_dir, "db", folder)
 
-    process_file(input_file_path, output_file_general_path, output_file_pid_path)
+    process_file(input_file_path, output_file_path)
     # print(f"Processed file saved as: {output_file_path}")
