@@ -35,7 +35,7 @@ In upcoming releases, expect:
 ## Getting Started
 
 1. **Download the Application:**  
-   Obtain the latest version of the SCADA AVEVA XML Generator from the [Releases](https://github.com/jpsdias/itlk_generator/releases/) page.
+   Obtain the latest version of the SCADA AVEVA XML Generator from the [Releases](https://github.com/jpsdias/aveva_xml_generator/releases) page.
 2. **Export Your Data:**  
    Export a dump of the interlocks from your AVEVA System Platform.
 3. **Select Your Model:**  
