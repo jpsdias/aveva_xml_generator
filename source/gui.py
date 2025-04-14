@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import os
-from generate import copy_model_file
-from prepare import process_file
+from source.generate import copy_model_file
+from source.prepare import process_file
 
 def select_input():
     input_file = filedialog.askopenfilename(
