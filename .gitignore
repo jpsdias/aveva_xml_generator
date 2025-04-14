@@ -160,7 +160,5 @@ cython_debug/
 #.idea/
 
 temp/
-
-output/
-
 db/
+output/
