@@ -1,12 +1,12 @@
 import os
+import shutil
 
-def process_file(input_file, output_file):
+def process_file(input_file):
     # Open the file with the proper encoding
     with open(input_file, 'r', encoding='utf-16') as f:
         lines = f.readlines()
 
-    general = []
-    pid = []
+    namesList = []
 
     for i, line in enumerate(lines, start=1):
         # Skip the first 5 lines.
@@ -17,28 +17,11 @@ def process_file(input_file, output_file):
         line_stripped = line.strip()
 
         if '_ProIntlk,' in line_stripped:
-            TempGeneralLine = line_stripped.split('_', 3)[2]
-            general.append(TempGeneralLine + "\n")
+            newLine = line_stripped.split('_', 3)[2]
+            namesList.append(newLine)
 
         if '_Intlk,' in line_stripped:
-            TempPidLine = line_stripped.split('_', 3)[2]
-            pid.append(TempPidLine + "\n")
+            newLine = line_stripped.split('_', 3)[2]
+            namesList.append(newLine)
 
-    with open(os.path.join(output_file, "general.csv"), 'w', encoding='utf-16') as f:
-        f.writelines(general)
-
-    with open(os.path.join(output_file, "pid.csv"), 'w', encoding='utf-16') as f:
-        f.writelines(pid)
-
-if __name__ == "__main__":
-    # Assume the current working directory is PROJECT_ROOT.
-    base_dir = os.getcwd()
-
-    folder = "ZL1"
-    
-    # Define file paths relative to PROJECT_ROOT.
-    input_file_path = os.path.join(base_dir, "db", folder, "Objects.csv")
-    output_file_path = os.path.join(base_dir, "db", folder)
-
-    process_file(input_file_path, output_file_path)
-    # print(f"Processed file saved as: {output_file_path}")
+    return namesList
